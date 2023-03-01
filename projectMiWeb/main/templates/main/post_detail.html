@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% block title %}Post detail{% endblock title %}
+
+{% block content %}
+    <div class="post">
+            <h3 class="title">{{ post.title }}</h3><br>
+            {% autoescape on %}
+                <p class="desc">
+                    {{ post.description}} <a class="btn btn-danger btn-sm" role="button" href="{% url 'posts_page' %}">Вернуться</a>
+                </p>
+            {% endautoescape %}
+            <a class="btn btn-secondary btn-sm" href="{{ post.cat.get_absolute_url }}">{{ post.cat }}</a>
+    </div>
+
+{% endblock content %}

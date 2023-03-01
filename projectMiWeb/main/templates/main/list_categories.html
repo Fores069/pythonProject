@@ -1,0 +1,11 @@
+{% for cat in cats %}
+      {% if cat.posts_set.exists %}
+      {% if cat.pk == cat_selected %}
+            <h4 class="btn btn-primary btn-lg">{{ cat }}</h4>
+            {% else %}
+                <h4><a class="btn btn-secondary btn-lg" href="{{ cat.get_absolute_url }}">{{ cat }}</a></h4>
+         {% endif %}
+        {% else %}
+      {% endif %}
+
+{% endfor %}

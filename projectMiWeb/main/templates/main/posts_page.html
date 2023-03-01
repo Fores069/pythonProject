@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+{% block title %}Страница с постами{% endblock title %}
+
+{% block content %}
+
+        {% for post in posts %}
+            <div class="post">
+                <h3 class="title">{{ post.title }}</h3><br>
+                {% autoescape on %}
+                    <p class="desc">
+                        {{ post.description| slice:":100" }}.. <a class="btn btn-primary btn-sm" role="button" href="{{ post.get_absolute_url }}">Читать пост</a>
+                    </p>
+                {% endautoescape %}
+                <a class="btn btn-secondary btn-sm" href="{{ post.cat.get_absolute_url }}">{{ post.cat }}</a>
+            </div>
+        {% endfor %}
+
+{% endblock content %}
